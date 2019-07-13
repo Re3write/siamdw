@@ -24,7 +24,7 @@ import sys
 sys.path.append('../')
 from utils.utils import *
 from core.config import config
-from .module import  SingleData
+from .module import SingleData
 
 sample_random = random.Random()
 # sample_random.seed(123456)

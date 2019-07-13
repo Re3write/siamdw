@@ -32,7 +32,7 @@ def parse_args():
     parser.add_argument('--resume', required=True, type=str, help='pretrained model')
     parser.add_argument('--dataset', default='VOT2017', help='dataset test')
     parser.add_argument('--anchor_nums', default=5, type=int, help='anchor numbers')
-    parser.add_argument('--cls_type', default="thicker", type=str, help='cls/loss type, thicker or thinner or else you defined')
+    parser.add_argument('--cls_type', default="thinner", type=str, help='cls/loss type, thicker or thinner or else you defined')
     parser.add_argument('--epoch_test', default=False, type=bool, help='multi-gpu epoch test flag')
     args = parser.parse_args()
 

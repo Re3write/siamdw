@@ -6,9 +6,9 @@ function eao = get_eao(result_sequences, year)
 % Input:
 % - result_sequences (cell): A cell array of valid sequence descriptor structures.
 
-addpath('path_to/vot-toolkit/'); toolkit_path; % Make sure that VOT toolkit is in the path
+addpath('/home/sk49/workspace/vot_toolkit/vot-toolkit-master'); toolkit_path; % Make sure that VOT toolkit is in the path
 
-pwd = ['path_to/vot-toolkit/', 'vot-workspace', year]  % year is a str (can not be a number)
+pwd = ['/home/sk49/workspace/vot_toolkit/vot-toolkit-master', 'vot-workspace', '2016']  % year is a str (can not be a number)
 [gt_sequences, experiments] = workspace_load(pwd);
 
 experiment_sequences = convert_sequences(gt_sequences, experiments{1}.converter);
