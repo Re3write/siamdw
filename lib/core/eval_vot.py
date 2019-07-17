@@ -58,7 +58,7 @@ def eval_eao(base_path, dataset):
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
-        print('python ./lib/core/eval_vot.py VOT2017 ./result')
+        print('python3 ./lib/core/eval_vot.py VOT2016 ./result')
         exit()
     dataset = sys.argv[1]
     result_path = sys.argv[2]

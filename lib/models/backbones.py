@@ -33,33 +33,33 @@ class ResNet22(nn.Module):
         unfix gradually as paper said
         """
         if abs(ratio - 0.0) < eps:
-            self.train_num = 2  # epoch0 1*[1,3,1]
+            self.train_num = 3  # epoch0 1*[1,3,1]
             self.unlock()
             return True
-        elif abs(ratio - 0.1) < eps:
-            self.train_num = 3  # epoch5 2*[1,3,1]
-            self.unlock()
-            return True
-        elif abs(ratio - 0.2) < eps:
-            self.train_num = 4  # epoch10 3*[1,3,1]
-            self.unlock()
-            return True
+        # elif abs(ratio - 0.1) < eps:
+        #     self.train_num = 3  # epoch5 2*[1,3,1]
+        #     self.unlock()
+        #     return True
         elif abs(ratio - 0.3) < eps:
-            self.train_num = 6  # epoch15 4*[1,3,1]  stride2pool makes stage2 have a more index
+            self.train_num = 6  # epoch10 3*[1,3,1]
             self.unlock()
             return True
-        elif abs(ratio - 0.5) < eps:
-            self.train_num = 7  # epoch25 5*[1,3,1]
-            self.unlock()
-            return True
+        # elif abs(ratio - 0.3) < eps:
+        #     self.train_num = 6  # epoch15 4*[1,3,1]  stride2pool makes stage2 have a more index
+        #     self.unlock()
+        #     return True
+        # elif abs(ratio - 0.5) < eps:
+        #     self.train_num = 7  # epoch25 5*[1,3,1]
+        #     self.unlock()
+        #     return True
         elif abs(ratio - 0.6) < eps:
-            self.train_num = 8  # epoch30 6*[1,3,1]
+            self.train_num = 9  # epoch30 6*[1,3,1]
             self.unlock()
             return True
-        elif abs(ratio - 0.7) < eps:
-            self.train_num = 9  # epoch35 7*[1,3,1]
-            self.unlock()
-            return True
+        # elif abs(ratio - 0.7) < eps:
+        #     self.train_num = 9  # epoch35 7*[1,3,1]
+        #     self.unlock()
+        #     return True
 
         return False
 

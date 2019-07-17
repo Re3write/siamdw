@@ -9,7 +9,7 @@ SIAMRPN:
     ISTRUE: True   # whether to train
     MODEL: "SiamRPNRes22"
     START_EPOCH: 0
-    END_EPOCH: 50
+    END_EPOCH: 20
     TEMPLATE_SIZE: 127
     SEARCH_SIZE: 255
     STRIDE: 8
@@ -18,13 +18,13 @@ SIAMRPN:
     PRETRAIN: 'CIResNet22_PRETRAIN.model'
     LR_POLICY: 'log'
     LR: 0.01
-    LR_END: 0.00001
+    LR_END: 0.00005
     MOMENTUM: 0.9
     WEIGHT_DECAY: 0.0005
     CLS_WEIGHT: 1
     REG_WEIGHT: 1
     CLS_TYPE: 'thinner'  # thicker or thinner
-    WHICH_USE: ['YTB','LASOT' ]    # add any data you want eg: ['GOT10K', 'LASOT']
+    WHICH_USE: ['YTB','LASOT']    # add any data you want eg: ['GOT10K', 'LASOT']
     ANCHORS_RATIOS: [0.33, 0.5, 1, 2, 3]
     ANCHORS_SCALES: [8]
     ANCHORS_THR_HIGH: 0.6

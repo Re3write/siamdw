@@ -6,10 +6,9 @@ function eao = get_eao(result_sequences, year)
 % Input:
 % - result_sequences (cell): A cell array of valid sequence descriptor structures.
 
-addpath('/home/sk49/workspace/vot_toolkit/vot-toolkit-master/'); toolkit_path; % Make sure that VOT toolkit is in the path
+addpath('/home/sk49/workspace/vot_toolkit'); toolkit_path; % Make sure that VOT toolkit is in the path
 
-pwd = ['/home/sk49/workspace/vot_toolkit/vot-toolkit-master/', 'vot-workspace', year]  % year is a str (can not be a number)
-[gt_sequences, experiments] = workspace_load(pwd);
+[gt_sequences, experiments] = workspace_load('directory','/home/sk49/workspace/cy/vot_workspace','onlydefaults',false,'force',false);
 
 experiment_sequences = convert_sequences(gt_sequences, experiments{1}.converter);
 weights = ones(numel(experiment_sequences), 1);
@@ -29,7 +28,7 @@ for s = 1:numel(experiment_sequences)
     sequence = experiment_sequences{s};
     [~, frames] = estimate_accuracy(trajectory, sequence);
     [~, sub_failures] = estimate_failures(trajectory, sequence);
-    practical = get_frame_value(sequence, 'practical');
+    practical = sequence_frame_value(sequence, 'practical');
 
     failures{end+1} = sub_failures(sub_failures <= sequence.length);
     segments{end+1} = frames;
