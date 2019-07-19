@@ -69,6 +69,7 @@ def siamfc_train(train_loader, model,  optimizer, epoch, cur_lr, cfg, writer_dic
 
     return model, writer_dict
 
+#epoch=0+1  +1
 def siamrpn_train(train_loader, model,  optimizer, epoch, cur_lr, cfg, writer_dict, logger, cls_type='thicker'):
     model, optimizer = unfix_more(model, optimizer, epoch, cfg, cur_lr, logger)
     batch_time = AverageMeter()
@@ -139,12 +140,12 @@ def siamrpn_train(train_loader, model,  optimizer, epoch, cur_lr, cfg, writer_di
 
 
 def unfix_more(model, optimizer, epoch, cfg, cur_lr, logger):
-    if model.module.features.unfix(epoch / cfg.SIAMFC.TRAIN.END_EPOCH):
+    if model.module.features.unfix(epoch / cfg.SIAMRPN.TRAIN.END_EPOCH):
         logger.info('unfix part model.')
         trainable_params = [p for p in model.parameters() if p.requires_grad]
         optimizer = torch.optim.SGD(trainable_params, cur_lr,
-                                    momentum=cfg.SIAMFC.TRAIN.MOMENTUM,
-                                    weight_decay=cfg.SIAMFC.TRAIN.WEIGHT_DECAY)
+                                    momentum=cfg.SIAMRPN.TRAIN.MOMENTUM,
+                                    weight_decay=cfg.SIAMRPN.TRAIN.WEIGHT_DECAY)
 
         logger.info('trainable params:')
         for name, param in model.named_parameters():

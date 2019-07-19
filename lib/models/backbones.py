@@ -32,6 +32,8 @@ class ResNet22(nn.Module):
         """
         unfix gradually as paper said
         """
+        print('train_num:',self.train_num)
+
         if abs(ratio - 0.0) < eps:
             self.train_num = 3  # epoch0 1*[1,3,1]
             self.unlock()
@@ -41,7 +43,7 @@ class ResNet22(nn.Module):
         #     self.unlock()
         #     return True
         elif abs(ratio - 0.3) < eps:
-            self.train_num = 6  # epoch10 3*[1,3,1]
+            self.train_num = 7  # epoch10 3*[1,3,1]
             self.unlock()
             return True
         # elif abs(ratio - 0.3) < eps:
@@ -53,7 +55,7 @@ class ResNet22(nn.Module):
         #     self.unlock()
         #     return True
         elif abs(ratio - 0.6) < eps:
-            self.train_num = 9  # epoch30 6*[1,3,1]
+            self.train_num = 10  # epoch30 6*[1,3,1]
             self.unlock()
             return True
         # elif abs(ratio - 0.7) < eps:
