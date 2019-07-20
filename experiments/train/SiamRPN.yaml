@@ -24,7 +24,7 @@ SIAMRPN:
     CLS_WEIGHT: 1
     REG_WEIGHT: 1
     CLS_TYPE: 'thinner'  # thicker or thinner
-    WHICH_USE: ['YTB','LASOT']    # add any data you want eg: ['GOT10K', 'LASOT']
+    WHICH_USE: ['GOT10K','VID']    # add any data you want eg: ['GOT10K', 'LASOT']
     ANCHORS_RATIOS: [0.33, 0.5, 1, 2, 3]
     ANCHORS_SCALES: [8]
     ANCHORS_THR_HIGH: 0.6

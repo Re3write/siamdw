@@ -42,7 +42,7 @@ class ResNet22(nn.Module):
         #     self.train_num = 3  # epoch5 2*[1,3,1]
         #     self.unlock()
         #     return True
-        elif abs(ratio - 0.3) < eps:
+        elif abs(ratio - 0.2) < eps:
             self.train_num = 7  # epoch10 3*[1,3,1]
             self.unlock()
             return True
@@ -54,7 +54,7 @@ class ResNet22(nn.Module):
         #     self.train_num = 7  # epoch25 5*[1,3,1]
         #     self.unlock()
         #     return True
-        elif abs(ratio - 0.6) < eps:
+        elif abs(ratio - 0.4) < eps:
             self.train_num = 10  # epoch30 6*[1,3,1]
             self.unlock()
             return True
